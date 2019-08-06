@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>C++学习笔记day1 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="今天是写博客的第一天，记录一下C++学习过程，用的教材是C++ Primer Plus,今天是从本书第3章-处理数据开始记录，这里很多知识都不会写下来，只记些我常忘的或者重要的，over    ##处理数据   ###1、变量名命名  C++提倡使用有含义的变量名，例如cost_of_trip,这种命名做法通常是用下划线字符将单词隔开，或者从第二个单词开始每个单词的首字母大写，如costOfT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++学习笔记day1">
+<meta property="og:url" content="http://yoursite.com/2019/08/06/C-学习笔记day1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天是写博客的第一天，记录一下C++学习过程，用的教材是C++ Primer Plus,今天是从本书第3章-处理数据开始记录，这里很多知识都不会写下来，只记些我常忘的或者重要的，over    ##处理数据   ###1、变量名命名  C++提倡使用有含义的变量名，例如cost_of_trip,这种命名做法通常是用下划线字符将单词隔开，或者从第二个单词开始每个单词的首字母大写，如costOfT">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-06T14:26:50.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="C++学习笔记day1">
+<meta name="twitter:description" content="今天是写博客的第一天，记录一下C++学习过程，用的教材是C++ Primer Plus,今天是从本书第3章-处理数据开始记录，这里很多知识都不会写下来，只记些我常忘的或者重要的，over    ##处理数据   ###1、变量名命名  C++提倡使用有含义的变量名，例如cost_of_trip,这种命名做法通常是用下划线字符将单词隔开，或者从第二个单词开始每个单词的首字母大写，如costOfT">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,103 +154,171 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-C-学习笔记day1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      C++学习笔记day1
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/06/C-学习笔记day1/" class="archive-article-date">
+
+        
+        <a href="/2019/08/06/C-学习笔记day1/" class="archive-article-date">
   	<time datetime="2019-08-06T12:02:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/06/C-学习笔记day1/">C++学习笔记day1</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  今天是写博客的第一天，记录一下C++学习过程，用的教材是C++ Primer Plus,今天是从本书第3章-处理数据开始记录，这里很多知识都不会写下来，只记些我常忘的或者重要的，over</p>
+<hr>
+<p>  ##处理数据</p>
+<p>  ###1、变量名命名<br>  C++提倡使用有含义的变量名，例如cost_of_trip,这种命名做法通常是用下划线字符将单词隔开，或者从第二个单词开始每个单词的首字母大写，如costOfTrip，命名风格在第二张有讨论，我觉得这个取决个人习惯吧。<br>  C++变量名命名规则如下：<br>  1&gt;名称中只能使用字母字符、数字和下划线——<br>  2&gt;名称的第一个字符不能是数字<br>  3&gt;区分大小写<br>  4&gt;不能将C++关键字用作名称<br>  5&gt;以两个下划线或下划线和大写字母开头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符<br>  6&gt;C++对于名称的长度没有限制，但是有些平台有长度限制</p>
+<p>  ###2、整型<br>  short、int、long、long long,C++规定了最小长度，short至少16位（bit),int至少与short一样长，long至少32位，且至少与int一样长，long long至少64位，且至少与long一样长。<br>  计算机内存的基本单元是位(bit),8位单元可以表示0-255或者-128-127，每增加一位，组合数便加倍，字节通常指的是8位的内存单元，即1 byte=8 bit;</p>
+<p>  sizeof()运算符指出，在使用8位字节系统中，int的长度位4个字节，short是2个字节。</p>
+<p>  整型的无符号类型，优点是增大变量能够存储的最大值，在整型超越限制值最大最小值时，整型的表现就像钟表，其值将为范围另一端的值。</p>
+<p>  ###3、char<br>  char最常被用来处理字符，但也可以将用作比short更小的整型。<br>  字符常量的书写方式，最常用的是将字符用单引号括起来，’A’,这种表示法代表的是字符的数值编码，在ASCII系统中，’A’为65，即字符A的ASC码。<br>  C++将一些字符赋予了含义–转义序列，<br>  cout&lt;&lt;endl;    //using the endl manipulator;<br>  cout&lt;&lt;’\n’;    //using a character constant;<br>  cout&lt;&lt;”\n”;    //using a string;<br>  都能实现将光标移到下一行。</p>
+<p>  ###const限定符<br>  使用const来定义符号常量，如const int Wifes=3000; 便可以在程序中使用Wifes，在定义符号常量时，通常会将首字母大写，有助于区分变量和常量。<br>  如果在声明变量时没有赋值，则该常量值不确定，且在程序中不能修改。</p>
+<p>  ###浮点数<br>  计算机将带有小数部分的数字分成两部分存储，一部分表示值，另一部分用于对值进行放大或缩小，例如123.4567和12.34567，可以表示成0.1234567(基准值)和1000（缩放因子），0.1234567和100，缩放因子的作用就是移动小数点的位置，术语浮点因此得名，C++是基于二进制数。</p>
+<p>  float至少32位，double至少48位，且不少于float,long double至少和double一样多。<br>  在用cout输出浮点数时，cout通常会删除结尾的零，所以可以调用cout.setf(ios_base::fixed, ios_base::floatfield);<br>  ios_bash::fixed是设置cout为定点输出格式，ios_bash::floatdield是设置输出时按浮点格式，小数点后有6位数字。因为float只能保证6位有效位。</p>
+<p>  ###算术运算符<br>  除法运算符（/）的行为取决于操作数的类型。如果两个操作数都是证书，则C++执行整数除法，即小数点被丢弃，结果为整数。如果其中有一个操作数是浮点值，则小数部分被保留，结果为浮点数。<br>  强制类型转换<br>  (<code>)
+  `int bots=20`
+  `long (bots)`
+  (</code>)<br>  强制类型转换不会修改变量本身，而是创建一个新的、指定类型的值，可以在表达式中使用这个值<br>  <code>static_cast&lt;long&gt; (bots)</code> 也是一种强制类型转换运算符，还有集中将在15章介绍。</p>
+<p>   auto<br>   使用关键字auto，让编译器能够根据初始值的类型推断变量的类型。<br>   <code>auto n=100;</code> n is int<br>   在处理复杂类型，如标准模板库STL中的类型时，auto的优势才能显现出来。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/06/C-学习笔记day1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/05/my-new-post/" class="archive-article-date">
-  	<time datetime="2019-08-05T13:31:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/05/my-new-post/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">my new post</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/05/my-new-post/">my new post</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/05/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-05T13:11:09.456Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/05/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +341,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
