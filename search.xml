@@ -9,11 +9,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[my new post]]></title>
-    <url>%2F2019%2F08%2F05%2Fmy-new-post%2F</url>
-    <content type="text"><![CDATA[苦昼短飞光飞光，劝尔一杯酒。吾不识青天高，黄地厚。 天天想你天天想你，天天问自己。到什么时候才能告诉你。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F08%2F05%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
