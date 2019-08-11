@@ -425,7 +425,7 @@ td {
 th,
 td {
   border-bottom: 3px solid #ddd;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #1c1c1c;
 }
 th {
   padding-bottom: 10px;
@@ -499,7 +499,7 @@ code {
   padding: 2px 4px;
   word-wrap: break-word;
   color: #555;
-  background: #eee;
+  background: #1c1c1c;
   border-radius: 3px;
   font-size: 13px;
 }
@@ -745,7 +745,7 @@ pre .javascript .function {
   position: relative;
   padding: 15px;
   margin-bottom: 20px;
-  border: 1px solid #eee;
+  border: 1px solid #1c1c1c;
   border-left-width: 5px;
   border-radius: 3px;
 }
@@ -976,7 +976,7 @@ pre .javascript .function {
 .pagination {
   margin: 120px 0 40px;
   text-align: center;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #1c1c1c;
 }
 .page-number-basic,
 .pagination .prev,
@@ -1002,7 +1002,7 @@ pre .javascript .function {
 .pagination .next,
 .pagination .page-number {
   border-bottom: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #1c1c1c;
   transition-property: border-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -1037,7 +1037,7 @@ pre .javascript .function {
   .pagination .page-number {
     margin-bottom: 10px;
     border-top: 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #1c1c1c;
     padding: 0 10px;
   }
   .pagination .prev:hover,
@@ -1063,7 +1063,7 @@ pre .javascript .function {
   right: 30px;
   z-index: 1050;
   padding: 0 6px;
-  width: 24px;
+  width: initial;
   background: #222;
   font-size: 12px;
   opacity: 1;
@@ -1560,7 +1560,7 @@ pre .javascript .function {
   display: table;
   margin-top: 15px;
   width: 100%;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #1c1c1c;
 }
 .post-nav-divider {
   display: table-cell;
@@ -1674,7 +1674,7 @@ pre .javascript .function {
   border-bottom-color: #555;
 }
 .sidebar a:hover {
-  color: #eee;
+  color: #1c1c1c;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .sidebar {
@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #22ffd7;
+  background: #f12436;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2659,4 +2659,11 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+.post {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
