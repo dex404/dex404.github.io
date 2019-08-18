@@ -272,6 +272,223 @@
  </div>
 
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/C-学习笔记day4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dex404">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/me2.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dex's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/18/C-学习笔记day4/" itemprop="url">C++学习笔记day4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-18T22:12:12+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  923
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>接上次复习，复合类型，写完了string类，over</p>
+<hr>
+<h2 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h2><h3 id="结构简介"><a href="#结构简介" class="headerlink" title="结构简介"></a>结构简介</h3><p>结构是为了同时存储多种类型的数据,使用struct关键字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct inflatable</span><br><span class="line">&#123;</span><br><span class="line">    char name[20];</span><br><span class="line">    float volume;</span><br><span class="line">    double price;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>创建inflatable类型的变量，<code>inflatable hat;</code>,使用成员运算符(.)来访问各个成员，<code>hat.price</code>.</p>
+<p>结构的声明通常在main()函数的前边-外部声明，外部声明可以被后面任何函数使用，但不提倡使用外部变量。</p>
+<p>初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">inflatable hat=</span><br><span class="line">&#123;</span><br><span class="line">    &quot;Glorious&quot;,</span><br><span class="line">    1.88,</span><br><span class="line">    29.99</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>使用(,)分隔值列表。</p>
+<p>C++使用户定义的类型与内置类型尽可能相似，可以将结构作为参数传递给函数，也可以让函数放回一个结构，可以用=将结构赋给另一个同类型结构。</p>
+<p>可以在定义结构时同时常见结构变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct perks</span><br><span class="line">&#123;</span><br><span class="line">    char name[20];</span><br><span class="line">    int key;</span><br><span class="line">&#125;smith,edward; //创建两个perks变量</span><br></pre></td></tr></table></figure>
+
+<p><strong>结构数组</strong><br>元素为结构的数组。<code>perks smith[20];</code></p>
+<p>结构数组的初始化和数组相同，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">perks g2[20]=</span><br><span class="line">&#123;</span><br><span class="line">    &#123;&quot;smith&quot;,5&#125;,</span><br><span class="line">    &#123;&quot;edward&quot;,6&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>结构中的位字段</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct torgle_register</span><br><span class="line">&#123;</span><br><span class="line">    unsigned int SN : 6;  //6 bits for SN value;</span><br><span class="line">    unsigned int : 4; //4 bits unused;</span><br><span class="line">    bool goodIn : 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="共用体union"><a href="#共用体union" class="headerlink" title="共用体union"></a>共用体union</h3><p>共用体是一种数据格式，能够存储不同的数据类型，但只能同时存储其中的一种类型。</p>
+<p>共用体常用于节省内存，还有操作系统数据结构或硬件数据结构。</p>
+<p>例如union perks,perks.name=”shox”; //存储一个char常量<br>perks.key=4; //存储int常量，但同时char常量丢失</p>
+<p>由于共用体每个时刻只能存储一个值，因此共用体的长度为其最大成员的长度。</p>
+<p>共用体的用途之一，例如管理一个小商品目录，有的商品ID是整数，有的ID是字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">struct widget</span><br><span class="line">&#123;</span><br><span class="line">    char brand[20];</span><br><span class="line">    int type;</span><br><span class="line">    union id</span><br><span class="line">    &#123;</span><br><span class="line">        long id_num;</span><br><span class="line">        char id_char[20];</span><br><span class="line">    &#125;id_val;</span><br><span class="line">&#125;:</span><br><span class="line">...</span><br><span class="line">widger price;</span><br><span class="line">cout&lt;&lt;price.id_val.id_num;</span><br></pre></td></tr></table></figure>
+
+<p>还有一种匿名共用体-没有名称，成员是位于相同地址处的变量。<br>匿名共用体，union {…};省略(id)这个名称，在后边使用时，<code>cout&lt;&lt;price.id_num;</code></p>
+<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p>enum工具提供了另一种创建符号常量的方式，这种方式可以替代const。<br><code>enum spectrum {red,orange,yellow,green,blue};</code><br>spectrum成为新类型的名称，枚举类型<br>red,orange作为符号常量，对应0~5，枚举量</p>
+<p>spectrum变量受到限制，只有在列表中的值是可能的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">spectrum band;</span><br><span class="line">band = red; //valid</span><br><span class="line">band = black; //invalid</span><br><span class="line">++band; //invalid,C++没有为枚举定义算术运算</span><br><span class="line">band =red + orange; //invalid,bang=0+1,int不能转换成枚举</span><br><span class="line">int color= blue; //valid,枚举类型可以转换成int类型</span><br><span class="line">band=4; //invalid,int型不能转换称枚举类型</span><br><span class="line">color =3 + red;// valid</span><br><span class="line">band=spectrum(2);//valid,int值有效的情况下，可强制转换</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置枚举量的值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">enum bits&#123;one=1,two=2,fout=4,five&#125;; //指定的值必须是整数</span><br><span class="line">enum bitss&#123;shox,kennys=200,apex&#125;; //shox=0,apex=201</span><br><span class="line">enum bitsss&#123;zero,null=0,one,onee=1&#125;; //zero=0,one=1,可以创创建多个值相同的枚举量</span><br></pre></td></tr></table></figure>
+
+<p><strong>枚举的取值范围</strong></p>
+<p>每个枚举都有取值范围，通过强制类型转换，可以将取值范围的任何整数值赋给枚举变量，即使这个值不是枚举值，例如前边的<code>band=spectrun(2);</code></p>
+<p>取值范围的定义：<br>上限，知道枚举量的最大值，找到大于这个最大值的、最小的2的幂，将它减去1，即是取值范围上限<br>下线，如果枚举量最小值&gt;=0，则下限为0，否则得下限的规则同上限</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  
+  <div>
+    
+ </div>
+
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/C-学习笔记day3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1279,7 +1496,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1352,7 +1569,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.7k</span>
+    <span title="Site words total count">5.6k</span>
   
 </div>
 
