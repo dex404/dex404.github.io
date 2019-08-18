@@ -272,6 +272,231 @@
  </div>
 
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/C-学习笔记day3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dex404">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/me2.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dex's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/14/C-学习笔记day3/" itemprop="url">C++学习笔记day3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-14T20:28:39+08:00">
+                2019-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天看第九章-内存模型和名称空间，明天再继续写之前的，over</p>
+<hr>
+<h2 id="内存模型和名称空间"><a href="#内存模型和名称空间" class="headerlink" title="内存模型和名称空间"></a>内存模型和名称空间</h2><h3 id="单独编译"><a href="#单独编译" class="headerlink" title="单独编译"></a>单独编译</h3><p>通常，大型程序都是由多个源代码文件组成，这些文件可能共享一些数据，这就涉及到程序文件的单独编译。</p>
+<p>头文件：包含结构声明和使用这些结构的函数的原型<br>源代码文件：包含与结构有关的函数的代码<br>源代码文件：包含调用与结构相关的代码</p>
+<p>不能将函数定义和变量声明放在头文件中，因为如果在头文件中包含一个函数定义，然后在另外两个文件中包含该头文件，则同意程序中将包含同一函数的两个定义，除非函数是内联的，否则就会出错。</p>
+<p>头文件：函数原型。<br>       使用#define或const定义的符号常量。<br>       结构声明。<br>       类声明。<br>       模板声明。<br>       内联函数。</p>
+<p>在包含自己的头文件时，应使用引号而不是尖括号。如果文件名包含在尖括号中，则C++编译器将在存储标准头文件的主机系统的文件系统中查找；但如果文件名包含在引号中，则编译器将首先查找当前工作目录或者源代码目录，如果没找到，则在标准位置查找。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#ifndef COORDIN_H</span><br><span class="line">#define COORDIN_H</span><br></pre></td></tr></table></figure>
+
+<p>同一个文件中只能将同一个头文件包含一次。基于预处理器编译指令#ifndef，可以避免在不知情的情况下，使用包含了另一个头文件的头文件导致错误，这种方法并不能防止编译器将文件包含两次，而是让他忽略除第一次包含之外的所有内容。</p>
+<p><code>#define</code>也能用来创建符号常量，<code>#define MIXMUM 99</code></p>
+<h3 id="存储持续性、作用域和链接性"><a href="#存储持续性、作用域和链接性" class="headerlink" title="存储持续性、作用域和链接性"></a>存储持续性、作用域和链接性</h3><p>自动存储持续性：在函数定义中声明的变量的存储持续性为自动的，函数或代码块执行完，使用的内存自动释放。<br>静态存储持续性：在函数定义外定义的变量和使用关键字static定义的变量，在程序整个运行过程都存在。<br>线程存储持续性：多核处理器的cpu同时处理多个执行任务，这让程序能够将计算放在可并行处理的不同线程中。<br>动态存储持续性：是用new运算符分配的内存将一直存在，知道使用delete运算符将器释放或程序结束。</p>
+<p><strong>作用域</strong>描述了名称在文件的多大范围可见。<br><strong>链接性</strong>描述了名称如何在不同单元间共享。链接性为外部的名称可在文件间共享，自动变量的名称没有链接性，不能共享。</p>
+<p>C++函数的作用域可以是整个类或整个名称空间，但不能是局部的，因为不能在代码块内定义函数，如果函数的作用域为局部，则只对它自己可见，因此不能被其他函数调用。</p>
+<p><strong>自动存储持续性</strong><br>在函数中生命的函数参数和变量的存储持续性为自动，作用域为局部，没有链接性。</p>
+<p>如果在内部代码块中定义了一个外部代码块中已经定义的同名变量，则程序在执行内粗代码块中的语句时，新的定义隐藏hide以前的定义，新定义可见，旧定义暂时不可见，此代码块执行完，原来的定义重新可见。</p>
+<p>C++管理自动变量的方法是留出一段内存-栈。</p>
+<p>寄存器变量，使用关键字register，<code>register int guardian_num;</code>,它建议编译器使用CPU寄存器来存储自动变量，旨在提高访问变量的速度。在C++11中，已经失去了这种作用。</p>
+<p><strong>静态持续变量</strong><br>C++为静态存储持续性变量提供了3种链接性，外部链接性（可在其他文件中访问），内部链接性（只能在当前文件中访问）和无链接性（只能在当前函数或代码块中使用）。</p>
+<p>静态变量的数目在程序运行空间不变，所以没有特殊装置管理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int global=1;  //static duration,external linkage</span><br><span class="line">static int one_file=2;  //静态持续，内部链接性</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">void funct1（int n)</span><br><span class="line">&#123;</span><br><span class="line">    static int count=0; //静态持续变量，无链接性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所有的静态持续变量，未被初始化的静态变量的所有位都被设置位0，这种变量成为零初始化的zero-initialized。</p>
+<p>零初始化和常量表达式初始化都成为静态初始化，编译器处理文件时初始化变量。动态初始化意味着变量在编译后初始化。</p>
+<p>所有静态变量都被零初始化，不论是否显式的初始化了它；如果常量表达式初始化了变量，且编译器根据文件内容就能及计算表达式，编译器将执行常量表达式初始化。如果没有足够的信息，变量将备东陶初始化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cmath&gt;</span><br><span class="line">int x; //零初始化</span><br><span class="line">int y=5; //常量表达式初始化</span><br><span class="line">long z=13*78; //常量表达式初始化</span><br><span class="line">const double pi=4.0*atan(1.0); //动态初始化</span><br></pre></td></tr></table></figure>
+
+<p>x,y,z,pi都被零初始化，之后y和z在被常量表达式初始化，pi初始化由于要调用atan()，所以需要等到该函数被链接且程序执行时。</p>
+<p><strong>静态持续性、外部链接性</strong><br>链接性为外部的变量通常成为外部变量，存储持续性为静态，作用域为整个文件。也称全局变量。</p>
+<p>单定义规则-变量只能有一次定义，C++提供两种变量声明，一种是定义声明或称定义，给变量分配存储空间；另一种是引用声明或称声明，不给变量分配存储空间，因为它引用已有的变量。</p>
+<p>引用声明使用关键字extern，不进行初始化，否则声明为定义，导致分配存储空间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int kennys;</span><br><span class="line">extern int shox; //shox defing elsewhere</span><br><span class="line">extern char gr= &apos;z&apos;; //definition because initialized</span><br></pre></td></tr></table></figure>
+
+<p>如果要在多个文件中使用外部变量，只需在一个文件中包含该变量的定义（单定义规则），但在使用该变量的其他所有文件中，都必须使用关键字extern声明它。</p>
+<p>external.cpp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//compile with support.cpp</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">double warming = 1.2;</span><br><span class="line">void update(double dt);</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    update(2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>support.cpp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//compile with external.cpp</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">extern double warming; //声明warming，在该文件中使用</span><br><span class="line"></span><br><span class="line">void update(double dt);</span><br><span class="line"></span><br><span class="line">using std::cout;</span><br><span class="line">void update(double dt)</span><br><span class="line">&#123;</span><br><span class="line">    double warming=0.4; //局部变量hide全局变量</span><br><span class="line">    cout&lt;&lt;&quot;new warming&quot;&lt;&lt;warming&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;&quot;global variable&quot;&lt;&lt;::warming; //使用::作用域解析运算符</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>作用域解析运算符::放在变量名前边，表示使用该变量的群居版本。</p>
+<p><strong>静态持续性、内部链接性</strong><br>static限定符用于作用域为整个文件的变量时，该变量的链接性为内部。</p>
+<p>如果文件定义了一个静态外部变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//file1</span><br><span class="line">int errors=0;</span><br><span class="line">...</span><br><span class="line">//file2</span><br><span class="line">static int error=20;</span><br><span class="line">void froobish()</span><br><span class="line">&#123;cout&lt;&lt;error&lt;&lt;endl;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其名称与另一个文件中声明的常规外部变量相同，则在该文件中，静态变量将隐藏常规外部变量。</p>
+<p><strong>静态存储持续性、无链接性</strong><br>即局部变量</p>
+<p>如果初始化了静态局部变量,则程序只在启动时进行一次初始化，以后再调用函数时，将不会像自动变量那样再次初始化。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  
+  <div>
+    
+ </div>
+
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/我的ub4-0被偷了/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1054,7 +1279,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1071,6 +1296,15 @@
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
@@ -1118,7 +1352,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.7k</span>
+    <span title="Site words total count">4.7k</span>
   
 </div>
 
