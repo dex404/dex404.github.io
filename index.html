@@ -272,6 +272,213 @@
  </div>
 
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/C-学习笔记day5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dex404">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/me2.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dex's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/19/C-学习笔记day5/" itemprop="url">C++学习笔记day5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-19T20:13:57+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天day3没写完的那章，不知道今天能不能写完，over</p>
+<hr>
+<h2 id="内存模型和名称空间"><a href="#内存模型和名称空间" class="headerlink" title="内存模型和名称空间"></a>内存模型和名称空间</h2><p>接### 存储持续性、作用域和链接性</p>
+<p><strong>说明符和限定符</strong><br>说明符和限定符提供有关存储的信息。<br>存储说明符：auto(C++11中不再是说明符)；register;static;extern;thread_local(C++11新增)；mutable.</p>
+<p>在同一个声明中不能使用多个说明符，除了thread_local，它可以和static或extern结合使用。<br>auto在C++11中用于自动类型推断。（C++之前是声明自动变量）<br>register在C++11中只是显式地指出变量是自动的。<br>static和extern不想写了<br>thread_local指出变量的持续性和其所属线程的持续性相同。<br>mutable指出，结构或类的变量为const，其某个成员（被mutable声明的）也可以被修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct data</span><br><span class="line">&#123;</span><br><span class="line">    char name[20];</span><br><span class="line">    mutable int accesses;</span><br><span class="line">&#125;;</span><br><span class="line">const data major=&#123;&quot;Claybourne Clodde&quot;, 0&#125;;</span><br><span class="line">strcpy(major.name,&quot;Joye Joux&quot;);</span><br><span class="line">major.accesses++;</span><br></pre></td></tr></table></figure>
+
+<p>cv-限定符<br>const,volatile.</p>
+<p>关键字volatile表明，及时程序代码没有对内存单元进行修改，其值也可能发生变化。</p>
+<p>默认情况下，全局变量的链接性是外部的，但const全局变量的链接性是内部的，就像static全局变量一样<code>const int lemon=3;int main(){...}</code>,内部链接性意味着，每个文件都有自己的一组常量，而不是所有文件共享一组常量，这样只要两个源代码文件包括同一个头文件，它们将获得同一组变量。</p>
+<p>可以使用extern关键字来覆盖默认的内部链接性，<code>extern const int fingers=10;</code>,这种情况下所有使用该变量的文件中都应使用extern关键字声明它。（常规外部变量是定义时直接定义，但在其他文件中使用时必须要用extern。</p>
+<p><strong>函数和链接性</strong></p>
+<p>C++不允许在一个函数中定义另一个函数，因此所有的函数的存储持续性都自动为静态的，即在程序执行期间，函数一直存在。</p>
+<p>函数的链接性默认是外部的，在其他文件中使用时要要extern关键字</p>
+<p>static关键字将函数的链接性设置为内部的，就像static全局变量一样，只能在一个文件使用，且static函数的原型和定义都必须使用static。</p>
+<p>C++查找函数：程序调用函数时，如果文件中的函数原型指出函数是静态的，则编译器将旨在该文件中查找该函数定义；否则，编译器将在所有程序文件中查找。如果找到两个定义，则发出错误消息；如果没找到，则编译器将在库中搜索。</p>
+<p><strong>语言链接性</strong></p>
+<p>因为链接程序要求每个不同的函数都有不同的符号名，但是C++中，同一个名称可能对应多个函数（多态），所以C++编译器会执行<em>名称矫正或名称修饰</em> ，为重载函数生成不同的符号名称。这种方法就称为-C++语言链接。</p>
+<p>例如spiff(int)转换为spiff_i,而将spiff(double,double)转换为spiff_d_d.</p>
+<p>在使用C库中预编译的函数是，应在函数原型中指出要使用的约定<br><code>extern void spoff(int);</code>或者<code>extern &quot;C++&quot; void spaff(int);</code></p>
+<p><strong>存储方案和动态分配</strong><br>C++运算符new分配的内存，就叫做动态内存，动态内存由new和delete控制，而不是由作用域和链接性规则控制，因此可以在一个函数中new内存，另一个函数中delete内存。<br>编译器通常使用三块独立的内存：一块用于静态变量，一块用于自动变量，另一块用于动态存储。</p>
+<p>new初始化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">new * pi=new int &#123;6&#125;; // *pi set to 6</span><br><span class="line">struct coordinate</span><br><span class="line">&#123;</span><br><span class="line">    double x;</span><br><span class="line">    double y;</span><br><span class="line">    double z;</span><br><span class="line">&#125;;</span><br><span class="line">coordinates * qing= new where &#123;2.3，2.3，2.3&#125;；</span><br><span class="line">int * ptr= new int [4] &#123;1,2,3,4&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>int * pi=new int;</code>将被转换为<code>int * pi=new(sizeof(int));</code></p>
+<p><em>定位new运算符</em></p>
+<p>定位new运算符是让程序员指定要使用的位置，通常的new是在堆（heap)中找到一个足以能够满足要求的内存块。使用定位new时，要包含头文件new,<code>include&lt;new&gt;;</code>,除了需要指定参数，其他和new无异。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char buffer[20];</span><br><span class="line">double * pi;</span><br><span class="line">pi= new (buffer) double[5];</span><br></pre></td></tr></table></figure>
+
+<h3 id="名称空间"><a href="#名称空间" class="headerlink" title="名称空间"></a>名称空间</h3><p>在C++中，名称可以是变量、函数、结构、枚举、类的成员等，当项目增大，是个多个厂商的类库时，就可能导致名称冲突-两个库都定义了List类，但用户希望使用这个库的List类，使用那个库的Tree库，名称空间即可解决这种问题。</p>
+<h2 id="果然没写完，打会CSGO，看会书睡觉，明天再写"><a href="#果然没写完，打会CSGO，看会书睡觉，明天再写" class="headerlink" title="果然没写完，打会CSGO，看会书睡觉，明天再写"></a>果然没写完，打会CSGO，看会书睡觉，明天再写</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  
+  <div>
+    
+ </div>
+
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/C-学习笔记day4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1496,7 +1703,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1569,7 +1776,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.6k</span>
+    <span title="Site words total count">6.8k</span>
   
 </div>
 
