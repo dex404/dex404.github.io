@@ -272,6 +272,204 @@
  </div>
 
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/C-学习笔记day6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dex404">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/me2.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dex's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/20/C-学习笔记day6/" itemprop="url">C++学习笔记day6</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-20T19:49:09+08:00">
+                2019-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  597
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>接着昨天的写，第九章最后一点内容了，写完煮个饺子吧，over</p>
+<hr>
+<h3 id="名称空间"><a href="#名称空间" class="headerlink" title="名称空间"></a>名称空间</h3><p>创建名称空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">namespace Jack&#123;</span><br><span class="line">    double pail;</span><br><span class="line">    void fetch();</span><br><span class="line">    int pal;</span><br><span class="line">    struct Well&#123;...&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>名称空间可以是全局的，也可以位于另一个名称空间中，但不能位于代码块中，因此，默认情况下，名称空间中声明的名称链接性是外部的。</p>
+<p>名称空间是开放的，可以把名称加入到已有的名称空间中。</p>
+<p>访问名称空间中的名称，是用过作用域解析运算符::，使用名称空间来限定该名称。<br><code>Jack::pail=1;</code><br>作用域解析运算符在之前还有过一次应用，是在局部变量隐藏同名全局变量的时候，例如::number来访问number的全局变量版本</p>
+<p><em>using声明和using编译指令</em><br>using声明使特定的标识符可用，如<code>using std::cout;</code><br>using编译指令使整个名称空间可用，<code>using namespace std;</code></p>
+<p>using声明若在main()函数外，则将名称添加到全局变量，在main()函数内，则是局部变量，由于变量的单定义规则，要注意同名变量的声明。</p>
+<p>using声明和using编译指令都增加了名称冲突的可能性。</p>
+<p>using编译指令导入所有的名称，但包括可能不需要的名称，如果与局部名称发生冲突，局部名称将覆盖名称空间版本，而编译器不会发出警告。</p>
+<p>名称空间还可以嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">namespace elements</span><br><span class="line">&#123;</span><br><span class="line">    namespace fire</span><br><span class="line">    &#123;</span><br><span class="line">        int flame;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    float water;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>using namespace elements;</code>=<code>using namespace elements;</code>+<code>using namespace fire;</code></p>
+<p>给名称空间创建别名，<code>namespace ele=elements;</code>,利用这种技术，简化嵌套名称空间的使用<br><code>namespace fla=elements::fire::flame;</code></p>
+<p>未命名的名称空间，该名称空间中的名称，就像链接性为内部的静态变量。</p>
+<p><strong>名称空间</strong><br>不在头文件中使用using编译指令，首先，这样做掩盖了要让那些名称可用；另外，包含头文件的顺序可能影响程序的行为。如果非要使用using编译指令，在放在所有预处理编译指令#include之后。</p>
+<p>导入名称时，首选使用作用域解析运算符或using声明的方法。</p>
+<p>对于using声明，首先将其作用域设置为局部而不是全局</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  
+  <div>
+    
+ </div>
+
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/C-学习笔记day5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1703,7 +1901,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1776,7 +1974,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.8k</span>
+    <span title="Site words total count">7.4k</span>
   
 </div>
 
