@@ -272,6 +272,197 @@
  </div>
 
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/C-学习笔记day1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dex404">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/me2.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dex's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/06/C-学习笔记day1/" itemprop="url">C++学习笔记day1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T20:02:27+08:00">
+                2019-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>  今天是写博客的第一天，记录一下C++学习过程，用的教材是C++ Primer Plus,今天是从本书第3章-处理数据开始记录，这里很多知识都不会写下来，只记些我常忘的或者重要的，over</p>
+<hr>
+<h2 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h2><h3 id="1、变量名命名"><a href="#1、变量名命名" class="headerlink" title="1、变量名命名"></a>1、变量名命名</h3><p>  C++提倡使用有含义的变量名，例如cost_of_trip,这种命名做法通常是用下划线字符将单词隔开，或者从第二个单词开始每个单词的首字母大写，如costOfTrip，命名风格在第二张有讨论，我觉得这个取决个人习惯吧。<br>  C++变量名命名规则如下：<br>   1&gt;名称中只能使用字母字符、数字和下划线——<br>   2&gt;名称的第一个字符不能是数字<br>   3&gt;区分大小写<br>   4&gt;不能将C++关键字用作名称<br>   5&gt;以两个下划线或下划线和大写字母开头的名称被保留给实现（编译器及其使用的资源）使用。以一个下划线开头的名称被保留给实现，用作全局标识符<br>   6&gt;C++对于名称的长度没有限制，但是有些平台有长度限制</p>
+<h3 id="2、整型"><a href="#2、整型" class="headerlink" title="2、整型"></a>2、整型</h3><p>  short、int、long、long long,C++规定了最小长度，short至少16位（bit),int至少与short一样长，long至少32位，且至少与int一样长，long long至少64位，且至少与long一样长。<br>  计算机内存的基本单元是位(bit),8位单元可以表示0-255或者-128-127，每增加一位，组合数便加倍，字节通常指的是8位的内存单元，即1 byte=8 bit;</p>
+<p>  sizeof()运算符指出，在使用8位字节系统中，int的长度位4个字节，short是2个字节。</p>
+<p>  整型的无符号类型，优点是增大变量能够存储的最大值，在整型超越限制值最大最小值时，整型的表现就像钟表，其值将为范围另一端的值。</p>
+<h3 id="3、char"><a href="#3、char" class="headerlink" title="3、char"></a>3、char</h3><p>  char最常被用来处理字符，但也可以将用作比short更小的整型。<br>  字符常量的书写方式，最常用的是将字符用单引号括起来，’A’,这种表示法代表的是字符的数值编码，在ASCII系统中，’A’为65，即字符A的ASC码。<br>  C++将一些字符赋予了含义–转义序列，<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;endl;    //using the endl manipulator;</span><br><span class="line">cout&lt;&lt;&apos;\n&apos;;    //using a character constant;</span><br><span class="line">cout&lt;&lt;&quot;\n&quot;;    //using a string;</span><br></pre></td></tr></table></figure></p>
+<p>  都能实现将光标移到下一行。</p>
+<h3 id="const限定符"><a href="#const限定符" class="headerlink" title="const限定符"></a>const限定符</h3><p>  使用const来定义符号常量，如const int Wifes=3000; 便可以在程序中使用Wifes，在定义符号常量时，通常会将首字母大写，有助于区分变量和常量。<br>  如果在声明变量时没有赋值，则该常量值不确定，且在程序中不能修改。</p>
+<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>  计算机将带有小数部分的数字分成两部分存储，一部分表示值，另一部分用于对值进行放大或缩小，例如123.4567和12.34567，可以表示成0.1234567(基准值)和1000（缩放因子），0.1234567和100，缩放因子的作用就是移动小数点的位置，术语浮点因此得名，C++是基于二进制数。</p>
+<p>  float至少32位，double至少48位，且不少于float,long double至少和double一样多。<br>  在用cout输出浮点数时，cout通常会删除结尾的零，所以可以调用<code>cout.setf(ios_base::fixed, ios_base::floatfield);</code><br>  ios_bash::fixed是设置cout为定点输出格式，ios_bash::floatdield是设置输出时按浮点格式，小数点后有6位数字。因为float只能保证6位有效位。</p>
+<p>  ###算术运算符<br>  除法运算符（/）的行为取决于操作数的类型。如果两个操作数都是证书，则C++执行整数除法，即小数点被丢弃，结果为整数。如果其中有一个操作数是浮点值，则小数部分被保留，结果为浮点数。<br>  强制类型转换<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int bots=20</span><br><span class="line">long (bots)</span><br></pre></td></tr></table></figure></p>
+<p>  强制类型转换不会修改变量本身，而是创建一个新的、指定类型的值，可以在表达式中使用这个值<br>  <code>static_cast&lt;long&gt; (bots)</code> 也是一种强制类型转换运算符，还有集中将在15章介绍。</p>
+<p>   auto<br>   使用关键字auto，让编译器能够根据初始值的类型推断变量的类型。<br>   <code>auto n=100;</code> n is int<br>   在处理复杂类型，如标准模板库STL中的类型时，auto的优势才能显现出来。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  
+  <div>
+    
+ </div>
+
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -474,7 +665,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -485,7 +676,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
