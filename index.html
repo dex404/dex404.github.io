@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/19/C-学习笔记day9/" itemprop="url">C++学习笔记day9</a></h1>
+                <a class="post-title-link" href="/2019/09/19/C-学习笔记day9/" itemprop="url">分支语句和逻辑运算符</a></h1>
         
 
         <div class="post-meta">
@@ -409,7 +409,7 @@
 </ul>
 <p>这章感觉内容更少，over</p>
 <hr>
-<h2 id="分支语句和逻辑运算符"><a href="#分支语句和逻辑运算符" class="headerlink" title="分支语句和逻辑运算符"></a>分支语句和逻辑运算符</h2><h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><p>不写</p>
+<h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><p>不写</p>
 <h3 id="逻辑表达式"><a href="#逻辑表达式" class="headerlink" title="逻辑表达式"></a>逻辑表达式</h3><p>&amp;&amp;和||运算符的优先级都低于关系运算符，逻辑非关系运算符!的优先级高于所有关系运算符和算数运算符</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5 &gt; 3 &amp;&amp; 5&gt;10  //等同于(5&gt;3) &amp;&amp; (5&gt;10)</span><br><span class="line">!(x &gt; 5)   //x&gt;5是否是错的</span><br><span class="line">!x &gt; 5   // !x是否大于5</span><br></pre></td></tr></table></figure>
 
@@ -960,7 +960,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/18/C-学习笔记day8/" itemprop="url">C++学习笔记day8</a></h1>
+                <a class="post-title-link" href="/2019/09/18/C-学习笔记day8/" itemprop="url">循环和关系表达式</a></h1>
         
 
         <div class="post-meta">
@@ -1082,7 +1082,7 @@
 </ul>
 <p>这章感觉内容比较少，over</p>
 <hr>
-<h2 id="循环和关系表达式"><a href="#循环和关系表达式" class="headerlink" title="循环和关系表达式"></a>循环和关系表达式</h2><h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for不写了</p>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for不写了</p>
 <h3 id="递增运算符和递减运算符"><a href="#递增运算符和递减运算符" class="headerlink" title="递增运算符和递减运算符"></a>递增运算符和递减运算符</h3><p>递增和递减运算符都有两个变体，前缀版本++x和后缀版本x++,两个版本队操作数的影响是相同的，但是影响时间不同</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int x = 5;</span><br><span class="line">int y = x++;   //y=5,x=6</span><br><span class="line">int z = ++x;   //z=6,x=6</span><br></pre></td></tr></table></figure>
 
@@ -1202,7 +1202,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/16/C-学习笔记day7/" itemprop="url">C++学习笔记day7</a></h1>
+                <a class="post-title-link" href="/2019/09/16/C-学习笔记day7/" itemprop="url">复合数据类型(3)</a></h1>
         
 
         <div class="post-meta">
@@ -1309,7 +1309,7 @@
           
             <p>写完第四章最后一点内容，over</p>
 <hr>
-<h2 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h2><h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p>指针用于存储值的地址，指针名就是地址，使用*运算符即解除引用运算符用于指针，可得到该地址处存储的值。一般变量使用&amp;地址运算符得到变量地址。</p>
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p>指针用于存储值的地址，指针名就是地址，使用*运算符即解除引用运算符用于指针，可得到该地址处存储的值。一般变量使用&amp;地址运算符得到变量地址。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int* ptr; //指向int的指针</span><br><span class="line">int* p1,p2; //一个指针，一个int变量</span><br><span class="line">int btr=2;</span><br><span class="line">int* pt= &amp;btr; //将pt初始化为btr的地址</span><br></pre></td></tr></table></figure>
 
 <p><strong>一定要在对指针应用解除引用运算符(*)之前，将指针初始化为一个确定的适当的地址</strong></p>
@@ -1425,7 +1425,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/20/C-学习笔记day6/" itemprop="url">C++学习笔记day6</a></h1>
+                <a class="post-title-link" href="/2019/08/20/C-学习笔记day6/" itemprop="url">内存模型和名称空间(3)</a></h1>
         
 
         <div class="post-meta">
@@ -1623,7 +1623,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/19/C-学习笔记day5/" itemprop="url">C++学习笔记day5</a></h1>
+                <a class="post-title-link" href="/2019/08/19/C-学习笔记day5/" itemprop="url">内存模型和名称空间(2)</a></h1>
         
 
         <div class="post-meta">
@@ -1689,7 +1689,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.3k
+                  1.2k
                 </span>
               
 
@@ -1730,7 +1730,6 @@
           
             <p>今天day3没写完的那章，不知道今天能不能写完，over</p>
 <hr>
-<h2 id="内存模型和名称空间"><a href="#内存模型和名称空间" class="headerlink" title="内存模型和名称空间"></a>内存模型和名称空间</h2><p>接### 存储持续性、作用域和链接性</p>
 <p><strong>说明符和限定符</strong><br>说明符和限定符提供有关存储的信息。<br>存储说明符：auto(C++11中不再是说明符)；register;static;extern;thread_local(C++11新增)；mutable.</p>
 <p>在同一个声明中不能使用多个说明符，除了thread_local，它可以和static或extern结合使用。<br>auto在C++11中用于自动类型推断。（C++之前是声明自动变量）<br>register在C++11中只是显式地指出变量是自动的。<br>static和extern不想写了<br>thread_local指出变量的持续性和其所属线程的持续性相同。<br>mutable指出，结构或类的变量为const，其某个成员（被mutable声明的）也可以被修改</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct data</span><br><span class="line">&#123;</span><br><span class="line">    char name[20];</span><br><span class="line">    mutable int accesses;</span><br><span class="line">&#125;;</span><br><span class="line">const data major=&#123;&quot;Claybourne Clodde&quot;, 0&#125;;</span><br><span class="line">strcpy(major.name,&quot;Joye Joux&quot;);</span><br><span class="line">major.accesses++;</span><br></pre></td></tr></table></figure>
@@ -1833,7 +1832,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/18/C-学习笔记day4/" itemprop="url">C++学习笔记day4</a></h1>
+                <a class="post-title-link" href="/2019/08/18/C-学习笔记day4/" itemprop="url">复合数据类型(2)</a></h1>
         
 
         <div class="post-meta">
@@ -1899,7 +1898,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  923
+                  919
                 </span>
               
 
@@ -1940,7 +1939,7 @@
           
             <p>接上次复习，复合类型，写完了string类，over</p>
 <hr>
-<h2 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h2><h3 id="结构简介"><a href="#结构简介" class="headerlink" title="结构简介"></a>结构简介</h3><p>结构是为了同时存储多种类型的数据,使用struct关键字。</p>
+<h3 id="结构简介"><a href="#结构简介" class="headerlink" title="结构简介"></a>结构简介</h3><p>结构是为了同时存储多种类型的数据,使用struct关键字。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct inflatable</span><br><span class="line">&#123;</span><br><span class="line">    char name[20];</span><br><span class="line">    float volume;</span><br><span class="line">    double price;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>创建inflatable类型的变量，<code>inflatable hat;</code>,使用成员运算符(.)来访问各个成员，<code>hat.price</code>.</p>
@@ -2050,7 +2049,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/14/C-学习笔记day3/" itemprop="url">C++学习笔记day3</a></h1>
+                <a class="post-title-link" href="/2019/08/14/C-学习笔记day3/" itemprop="url">内存模型和名称空间(1)</a></h1>
         
 
         <div class="post-meta">
@@ -2157,7 +2156,7 @@
           
             <p>今天看第九章-内存模型和名称空间，明天再继续写之前的，over</p>
 <hr>
-<h2 id="内存模型和名称空间"><a href="#内存模型和名称空间" class="headerlink" title="内存模型和名称空间"></a>内存模型和名称空间</h2><h3 id="单独编译"><a href="#单独编译" class="headerlink" title="单独编译"></a>单独编译</h3><p>通常，大型程序都是由多个源代码文件组成，这些文件可能共享一些数据，这就涉及到程序文件的单独编译。</p>
+<h3 id="单独编译"><a href="#单独编译" class="headerlink" title="单独编译"></a>单独编译</h3><p>通常，大型程序都是由多个源代码文件组成，这些文件可能共享一些数据，这就涉及到程序文件的单独编译。</p>
 <p>头文件：包含结构声明和使用这些结构的函数的原型<br>源代码文件：包含与结构有关的函数的代码<br>源代码文件：包含调用与结构相关的代码</p>
 <p>不能将函数定义和变量声明放在头文件中，因为如果在头文件中包含一个函数定义，然后在另外两个文件中包含该头文件，则同意程序中将包含同一函数的两个定义，除非函数是内联的，否则就会出错。</p>
 <p>头文件：函数原型。<br>       使用#define或const定义的符号常量。<br>       结构声明。<br>       类声明。<br>       模板声明。<br>       内联函数。</p>
@@ -2542,7 +2541,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.9k</span>
+    <span title="Site words total count">12.8k</span>
   
 </div>
 
